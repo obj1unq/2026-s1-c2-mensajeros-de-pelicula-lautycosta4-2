@@ -1,0 +1,41 @@
+import entregas.*
+import destinos.* 
+import mensajeros.*
+
+describe "casos de prueba" {
+  test "1. El paquete de George que no está pago no puede ser llevado por Neo a la matrix." {
+        entregar_paquete.setMensajero(neo)
+        entregar_paquete.setDestino(laMatrix)
+        paquete.paqueteNoPago()
+
+        assert.equals(false, entregar_paquete.entregar())
+  }
+  test "2. El paquete de George que sí está pago puede ser llevado por Jean a la matrix."{
+        entregar_paquete.setMensajero(jean_gray)
+        entregar_paquete.setDestino(laMatrix)
+        paquete.paquetePago()
+
+        assert.equals(true, entregar_paquete.entregar()) 
+  }
+  test "3. El paquete de George que sí está pago no puede ser llevado por Sara (que pesa 70kg) a Brooklyn si es que utiliza un camión con un acoplado."{
+        entregar_paquete.setMensajero(sara_connor)
+        entregar_paquete.setDestino(puenteBrooklyn)
+        paquete.paquetePago()
+        sara_connor.setPeso(70)
+        sara_connor.setVehiculo(camion)
+        camion.setAcoplados(1)
+
+        assert.equals(false, entregar_paquete.entregar())
+    }
+  test "4. La entrega anterior puede hacerse si Sara usa una moto."{
+        entregar_paquete.setMensajero(sara_connor)
+        entregar_paquete.setDestino(puenteBrooklyn)
+        paquete.paquetePago()
+        sara_connor.setPeso(70)
+        sara_connor.setVehiculo(moto)
+
+        assert.equals(true, entregar_paquete.entregar())
+  }
+}
+  
+  
