@@ -21,7 +21,7 @@ object paquete{
 object entrega{
 	var mensajero = jean_gray
 	var destino = puenteBrooklyn
-	var paqueteAEntregar = paquete
+	const  paqueteAEntregar = paquete
 
 	method mensajero(_mensajero){ mensajero=_mensajero }
 	method destino(_destino){ destino=_destino }
