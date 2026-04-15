@@ -1,3 +1,10 @@
+/*La empresa utiliza un sistema desarrollado en objetos para 
+identificar que persona llevará ese paquete. De todos los 
+requerimientos que tiene el sistema, en este ejercicio sólo 
+se pide resolver el siguiente: **Determinar si ese _paquete_ 
+puede ser entregado por una _persona_ en un determinado 
+_destino_**, teniendo en cuenta las siguientes reglas.*/
+
 import mensajeros.*
 import destinos.*
 
@@ -11,14 +18,16 @@ object paquete{
 	method estaPago(){ return estaPago }
 }
 
-object entregar_paquete{
+object entrega{
 	var mensajero = jean_gray
 	var destino = puenteBrooklyn
+	var paqueteAEntregar = paquete
 
-	method setMensajero(_mensajero){ mensajero=_mensajero }
-	method setDestino(_destino){ destino=_destino }
+	method mensajero(_mensajero){ mensajero=_mensajero }
+	method destino(_destino){ destino=_destino }
 
-	method entregar(){
-		return paquete.estaPago() && destino.puedePasar(mensajero)
+	method puedeEntregar(){
+		return paqueteAEntregar.estaPago() && 
+		destino.puedePasar(mensajero)
 	}
 }

@@ -27,14 +27,14 @@ object neo{
 }
 
 object sara_connor{
-    var peso_propio=0
+    var pesoPropio=0
     var vehiculo= moto
 
-    method setPeso(_peso){ peso_propio=_peso }
-    method cuantoPesa(){ return peso_propio }
+    method pesoPropio(_peso){ pesoPropio=_peso }
+    method cuantoPesa(){ return pesoPropio }
 
-    method setVehiculo(_vehiculo){ vehiculo=_vehiculo }
-    method peso(){ return peso_propio + vehiculo.peso() }
+    method vehiculo(_vehiculo){ vehiculo=_vehiculo }
+    method peso(){ return pesoPropio + vehiculo.peso() }
 
 
     method puedeLlamar(){ return false }
@@ -45,7 +45,7 @@ object moto {
 }
 object camion {
     var acoplados=0
-    method setAcoplados(_acoplados){ acoplados=_acoplados }
+    method acoplados(_acoplados){ acoplados=_acoplados }
     method peso(){ return 500 + (acoplados * 500) }
 }
 
